@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map Display</title>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter Coordinates:</h1>
+  <form id="coordinateForm">
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude" placeholder="Enter latitude">
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude" placeholder="Enter longitude">
+    <button type="button" onclick="addMarker()">Add Location</button>
+    <button type="button" onclick="zoomToMarker()">Zoom to Marker</button>
+  </form>
+  <div id="map"></div>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCP2AavNzkuqd1KHh_CXXVAOR71A1bsd8&libraries=places&libraries=places&callback=initMap"></script>
+  <script>
+    var map;
+    var markers = [];
+
+    // Function to add a marker for a location
+    function addMarker() {
+      var latitude = parseFloat(document.getElementById("latitude").value);
+      var longitude = parseFloat(document.getElementById("longitude").value);
+
+      if (isNaN(latitude) || isNaN(longitude)) {
+        alert("Please enter valid latitude and longitude coordinates.");
+        return;
+      }
+
+      var marker = new google.maps.Marker({
+        position: { lat: latitude, lng: longitude },
+        map: map
+      });
+      markers.push(marker);
+
+      document.getElementById("latitude").value = "";
+      document.getElementById("longitude").value = "";
+    }
+
+    // Function to initialize the map
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 0, lng: 0 },
+        zoom: 1
+      });
+
+      map.addListener('zoom_changed', updateMarkers);
+    }
+
+    
+    // Function to update marker positions based on current zoom
+    function updateMarkers() {
+      markers.forEach(function(marker) {
+        var latLng = marker.getPosition();
+        var newLatLng = google.maps.geometry.spherical.computeOffset(latLng, -20, 0);
+        marker.setPosition(newLatLng);
+      });
+    }
+
+    // Function to zoom in to the last added marker
+    function zoomToMarker() {
+      var lastMarker = markers[markers.length - 1];
+      if (lastMarker) {
+        map.setCenter(lastMarker.getPosition());
+        map.setZoom(5);
+      }
+    }
+
+    // Call the initMap function once the Google Maps API is loaded
+    google.maps.event.addDomListener(window, 'load', initMap);
+  </script>
+  <script src="admin1.js"></script>
+</body>
+</html>

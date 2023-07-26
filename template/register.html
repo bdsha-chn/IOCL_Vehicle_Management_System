@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Driver Registration Form- MongoDB</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/boot">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <form action="/Register" method="POST">
+      <div class="container">
+        <h1>Driver Registration</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+    
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    
+        <label for="vrn"><b>Vehicle Registration Number</b></label><br>
+        <input type="text" placeholder="Enter Registration Number" name="vrn" id="quantity" required>
+        <hr>
+    
+        <label for="vnm"><b>Vehicle Name</b></label><br>
+        <input type="text" placeholder="Enter Vehicle Name" name="vnm" id="quantity" required>
+        <hr>
+        
+        <label for="Dn"><b>Driver Full Name</b></label><br>
+        <input type="text" placeholder="Enter Driver Name" name="Dn" id="quantity" required>
+        <hr>
+
+        <label for="pn"><b>Phone Number</b></label><br>
+        <input type="text" placeholder="Enter Phone number" name="pn" id="pn"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}"required>
+        <hr>
+
+        
+        <button type="submit" class="registerbtn">Register</button>
+      </div>
+    </form>
+
+</body>
+</html> 

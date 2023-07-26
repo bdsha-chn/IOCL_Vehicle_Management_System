@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IOCL</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link href="home.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #about-us {
+      text-align: center;
+      padding: 20px;
+    }
+
+    #about-us h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #about-us p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">IOCL</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+          <ul class="navbar-nav ms-auto">
+            <% if (locals.isSignedIn) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Welcome</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a> 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/map.html">View Map</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/register">Register Driver</a> 
+                </li>
+              </li>
+            <% } else { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Admin Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/register_admin">Admin Registration</a>
+              </li>
+            <% } %>
+            <li class="nav-item">
+              <a class="nav-link" href="#about-us">About Us</a>
+            </li>           
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg">
+      <div class="overlay-text">
+        <img src="logo.png" alt="Logo" class="logo" />
+        <h1>IndianOil</h1>
+        <h2>The Energy Of India</h2>
+        <div class="button">
+          <a href="#about-us" class="button">Click to know about IOCL!!</a>
+           </div>
+       </div>
+     </div>
+  
+     <div class="container" id="about-us">
+      <h1>About IOCL:</h1>
+      <p>
+        <i>Welcome to the heart of IndianOil, where our vision and values converge.
+          Our vision is to be the 'Energy of India' and to become 'A globally admired company.'
+          As we step into an era of transformation, we are broadening our horizons, expanding
+          across new vistas, and infusing new-age dynamism among our employees. Our journey, which
+          began with the merger of Indian Oil Corporation Ltd. and Indian Refineries Ltd. in 1964,
+          has been guided by our core values of Care, Innovation, Passion, and Trust. These values
+          embody the collective conscience of IndianOil and its people, steering us towards our North
+          Star - being the Energy of India and Globally Admired.
+        </i>
+      </p>
+      <p>
+        <i>
+          Guwahati Refinery located among the picturesque surroundings near Brahmaputra River in
+          Guwahati city in North Eastern part of India. It is the country’s 1st Public Sector Refinery
+          as well as IndianOil’s, serving the nation since 1962. Built with Romanian technology available
+          in the late 50s, the initial crude processing capacity of the Refinery was 0.75 Million Metric
+          Tonnes Per Annum (MMTPA). The Refinery was designed to process a mix of OIL and ONGC crude in
+          CDU, secondary processing units being Delayed Coker Unit (DCU) of 0.33 MMTPA capacity and
+          Kerosene Treating Unit (KTU) of 0.23 MMTPA capacity. Subsequently, the capacity of the refinery
+          was enhanced to 1.0 MMTPA in 1986.
+        </i>
+      </p>
+      <p>
+        <i>
+          As a Brand with one of the largest customer interfaces in India, IndianOil reaches precious petroleum
+          fuels to every nook and corner of the country through its network of over 58,000 plus customer touch-points,
+          surmounting the challenges of tough terrain, climate, and accessibility. The marketing network is bolstered
+          by 70.05 MMTPA of Refining Capacity and more than 15,000 KM of cross-country pipelines. Moreover, IndianOil's
+          R&D Centre at Faridabad, one of Asia's finest in downstream petroleum R&D, offers a competitive advantage
+          to the Corporation through world-class technology and process solutions and innovative products. IndianOil R&D
+          has also been instrumental in pioneering path-breaking research to leverage the potential of Hydrogen and other
+          cleaner fuels for the sustainable progress of the nation.
+        </i>
+      </p>
+      <p>
+        <i>
+          One of India’s most socially responsive brands, IndianOil, has successfully combined its corporate social
+          responsibility agenda with its business offerings. The Corporation has been partnering with communities in which
+          it operates by supporting numerous initiatives connected health, family welfare, education, environment protection,
+          potable water, sanitation, empowerment of women, and other marginalized groups.
+        </i>
+      </p>
+    </div>
+  </body>
+  </html>
