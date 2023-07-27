@@ -51,7 +51,7 @@ app.get('/', (req, res)=>{
   res.set({"Allow-access-Allow-Origin": '*'
   })
     return res.redirect('register.html');
-  }).listen(3000);
+  }).listen(3001);
 
   
     console.log('Server started on port 3001');

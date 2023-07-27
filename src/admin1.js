@@ -18,7 +18,7 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 app.set("views", templatePath);
 app.use(express.urlencoded({ extended: false })
-);
+); 
 app.use(
   session({
     secret: "secret123", 
@@ -33,7 +33,9 @@ app.get("/", (req, res) => {
 app.get("/home", (req, res) => {
   res.render("home", { isSignedIn: req.session.isSignedIn || false }); 
 });
-
+app.get("/table",(req,res)=>{
+  res.render("table.html");
+});
 app.get("/register_admin", (req, res) => {
   res.render("register_admin");
 });
@@ -46,12 +48,12 @@ app.get("/Register",(req,res)=>{
   res.render("register");
 });
 
-
+/*
 // Load "map.html" page when accessing "/map"
 app.get("/map", (req, res) => {
   res.sendFile(path.join(__dirname, "../template/map.html"));
 });
-
+*/
 app.get("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/home");
@@ -71,7 +73,7 @@ app.post("/login", async (req, res) => {
     res.send("Wrong Details");
   }
 })
-
+/*
 
 // API endpoint to handle adding coordinates (POST request)
 const markers = [];
@@ -96,7 +98,7 @@ app.get("/getMarkers", (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../template/map.html"));
 });
-
+*/
 
 app.post("/Register",async(req,res)=>{
   const data={email:req.body.email,
@@ -134,6 +136,8 @@ app.post("/login", async (req, res) => {
     res.send("Wrong Details");
   }
 });
+
+
 
 app.listen(3001, () => {
   console.log("server started on port 3001");
